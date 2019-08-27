@@ -31,6 +31,7 @@ public class OutOfMemeryController {
         byte[] bytes = new byte[1024*1024];
         leafMapSimple.put(id, bytes);
         log.info("outOfMemerySimple called; Id: {} and leafMap.size: {} ",id, leafMapSimple.size());
+        log.debug(" debug outOfMemerySimple called; Id: {} and leafMap.size: {} ",id, leafMapSimple.size());
         return ResponseEntity.status(HttpStatus.CREATED).body("Map size :"+leafMapSimple.size());
     }
 
@@ -41,6 +42,7 @@ public class OutOfMemeryController {
         ArrayList<byte[]> arrayListSimple = new ArrayList<> ();
         arrayListSimple.add(bytes);
         log.info("addMemerySimple called; Id: {} and arrayListSimple.size: {}.",id,arrayListSimple.size());
+        log.debug("debug outOfMemerySimple called; Id: {} and leafMap.size: {} ",id, arrayListSimple.size());
         return ResponseEntity.status(HttpStatus.CREATED).body("Map size :"+arrayListSimple.size());
     }
 
