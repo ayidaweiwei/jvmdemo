@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine
 
 EXPOSE 8888
 
-ADD app.jar app.jar
+ADD build/libs/jvmshare-0.0.1-SNAPSHOT.jar app.jar
 # copy arthas
 COPY --from=ayidaweiwei/arthas:latest /opt/arthas /opt/arthas
 
