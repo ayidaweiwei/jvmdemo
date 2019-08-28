@@ -1,6 +1,8 @@
 package com.example.jvmshare.memery;
 
-import lombok.extern.slf4j.Slf4j;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +18,10 @@ import java.util.Map;
 /**
  * @author r2dxxc
  */
-@Slf4j
 @RestController
 @RequestMapping(value = "/gc", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OutOfMemeryController {
+    Logger log = LoggerFactory.getLogger(OutOfMemeryController.class);
     private Map leafMap = new HashMap();
     private Map leafMapSimple = new HashMap();
 
@@ -30,6 +32,7 @@ public class OutOfMemeryController {
 
         byte[] bytes = new byte[1024*1024];
         leafMapSimple.put(id, bytes);
+        System.out.println("hello");
         log.info("outOfMemerySimple called; Id: {} and leafMap.size: {} ",id, leafMapSimple.size());
         log.debug(" debug outOfMemerySimple called; Id: {} and leafMap.size: {} ",id, leafMapSimple.size());
         return ResponseEntity.status(HttpStatus.CREATED).body("Map size :"+leafMapSimple.size());
