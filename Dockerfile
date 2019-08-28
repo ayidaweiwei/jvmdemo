@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:8-jdk-alpine
 
 EXPOSE 8888
 
@@ -9,9 +9,9 @@ COPY --from=ayidaweiwei/arthas:latest /opt/arthas /opt/arthas
 #option 1   to avoid pid = 1
 
 # Add Tini
-#RUN apk add --no-cache tini
+RUN apk add --no-cache tini
 #Tini is now available at /sbin/tini
-#ENTRYPOINT ["/sbin/tini", "--"]
+ENTRYPOINT ["/sbin/tini", "--"]
 #Run demo program under Tini
 CMD ["java","-jar","/app.jar"]
 
