@@ -1,4 +1,4 @@
-FROM docker.siemens.com/mindsphere-mainline/infrastructure/hub/openjdk-alpine-ist:v1.2
+FROM openjdk:8-jdk-alpine
 
 EXPOSE 8888
 
