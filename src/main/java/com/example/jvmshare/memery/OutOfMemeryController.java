@@ -32,9 +32,9 @@ public class OutOfMemeryController {
 
         byte[] bytes = new byte[1024*1024];
         leafMapSimple.put(id, bytes);
-        System.out.println("hello world 2019");
+        System.out.println("hello world 2019 8 29");
         log.info("outOfMemerySimple called; Id: {} and leafMap.size: {} ",id, leafMapSimple.size());
-        log.debug(" debug outOfMemerySimple called; Id: {} and leafMap.size: {} ",id, leafMapSimple.size());
+        log.info(" debug outOfMemerySimple called; Id: {} and leafMap.size: {} ",id, leafMapSimple.size());
         return ResponseEntity.status(HttpStatus.CREATED).body("Map size :"+leafMapSimple.size());
     }
 
